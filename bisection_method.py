@@ -6,15 +6,6 @@
 from math import pow
 
 
-# membuat fungsi
-def func1(x):
-    return ((2 * pow(x, 3)) - (5 * pow(x, 2)) - (74 * x) - 112)
-
-
-def func2(x):
-    return (1 * pow(x, 3)) - (3 * x) + 1
-
-
 # fungsi untuk melakukan perhitungan metode bisection
 def bisection(func, a, b, nmax, emax):
     # jika hasil dari f(a) * f(b) adalah nol, maka tidak dapat dilanjutkan
@@ -34,9 +25,9 @@ def bisection(func, a, b, nmax, emax):
         i = 1
 
         # iterasi berdasarkan nmax
-        # while i < nmax:
+        while i < nmax:
         # iterasi tanpa akhir, akan berakhir jika akar ditemukan
-        while True:
+        # while True:
             # membuat variable xnew untuk menampung nilai x yang baru
             xnew = (a + b)/2
 
@@ -49,8 +40,8 @@ def bisection(func, a, b, nmax, emax):
             # menghitung toleransi error menggunakan nilai absolut
             err = abs((xnew - xold) / xnew)
 
+            # Jika iterasi sudah dilakukan lebih dari 1 kali
             if i > 1:
-
                 # debuging
                 print(f'\niter: {i}')
                 print(f'a: {a:.5f}')
@@ -77,12 +68,14 @@ def bisection(func, a, b, nmax, emax):
                         xold = xnew
                         a = xnew
             else:
+                # jika f(a) x f(x) kurang dari 0
+                # maka b = x
                 if (fa * fxb) < 0:
                     b = xbase
                 else:
                     a = xbase
 
-
+            # increment
             i += 1
         else:
             return False
@@ -95,7 +88,16 @@ if __name__ == '__main__':
     #           4 -> banyaknya iterasi
     #           5 -> error maksimal
     # x = bisection(func1, 5, 10, 15, 0.0001)
-    x = bisection(func2, 0, 1, 15, 0.0001)
+
+    # membuat fungsi
+    def func1(x):
+        return ((2 * pow(x, 3)) - (5 * pow(x, 2)) - (74 * x) - 112)
+
+    def func2(x):
+        return (1 * pow(x, 3)) - (3 * x) + 1
+
+    # menjalankan fungsi bisection dengan memasukan fungsi2
+    x = bisection(func2, 0, 1, 18, 0.0001)
 
     if not x:
         print(f'\nAkar tidak ditemukan')
