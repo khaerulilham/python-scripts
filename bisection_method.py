@@ -43,15 +43,19 @@ def bisection(func, a, b, nmax, emax):
             # Jika iterasi sudah dilakukan lebih dari 1 kali
             if i > 1:
                 # debuging
-                print(f'\niter: {i}')
+                print('\n---------------')
+                print(f'iter: {i}')
+                print('---------------')
                 print(f'a: {a:.5f}')
                 print(f'b: {b:.5f}')
-                print(f'xnew: {xnew:.5f}')
-                print(f'xold: {xold:.5f}')
-                print(f'err: {err:.5f}')
+                print(f'x: {xnew:.5f}')
+                # print(f'xold: {xold:.5f}')
+                print('---------------')
                 print(f'fa: {fa:.5f}')
                 print(f'fb: {fb:.5f}')
                 print(f'fx: {fx:.5f}')
+                print('---------------')
+                print(f'err: {err:.5f}')
 
                 # jika toleransi error lebih kecil dari max error
                 # maka iterasi berakhir dan mengembalikan nilai x yang baru
@@ -97,9 +101,9 @@ if __name__ == '__main__':
         return (1 * pow(x, 3)) - (3 * x) + 1
 
     # menjalankan fungsi bisection dengan memasukan fungsi2
-    x = bisection(func2, 0, 1, 18, 0.0001)
+    bsc = bisection(func2, 0, 1, 18, 0.0001)
 
-    if not x:
+    if not bsc:
         print(f'\nAkar tidak ditemukan')
     else:
-        print(f'\nJadi akarnya adalah: {x}')
+        print(f'\nJadi akarnya adalah: {bsc}')
