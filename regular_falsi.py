@@ -99,10 +99,10 @@ if __name__ == '__main__':
         return ((2 * pow(x, 3)) - (5 * pow(x, 2)) - (74 * x) - 112)
 
     def func2(x):
-        return (1 * pow(x, 5)) - (34 * x) + 80
+        return (1 * pow(x, 3)) - (3 * x) + 1
 
     # menjalankan fungsi regular falsi dengan memasukan fungsi2
-    falsi = regular_falsi(func1, 5, 10, 18, 0.0001)
+    falsi = regular_falsi(func2, 0, 1, 18, 0.0001)
 
     if not falsi:
         print(f'\nAkar tidak ditemukan')
